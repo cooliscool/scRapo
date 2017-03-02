@@ -10,8 +10,8 @@ links 	= page.text.split('<h3 class="r">') # first split to get the tiles
 links 	= links[1:10] #not taking all the links
 
 for link in links:
-	chunks = link.split(' ')
+	chunks  = link.split(' ')
 	shorts 	= chunks[1].split('&amp;')
-	url		= shorts[0][13:]
+	url	= shorts[0][13:]
 	if url[:4] == 'http': # print only if it is an http url 
 		print url + '\n'	

@@ -4,7 +4,7 @@
 import requests
 
 googleSearchQuery 	= 'moochingal'
-page 				= requests.get('https://www.google.co.in/search?q=' + googleSearchQuery)
+page 			= requests.get('https://www.google.co.in/search?q=' + googleSearchQuery)
 
 links 	= page.text.split('<h3 class="r">') # first split to get the tiles 
 links 	= links[1:10] #not taking all the links

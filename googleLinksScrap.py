@@ -5,6 +5,7 @@
 
 import requests
 
+<<<<<<< HEAD
 vendors = {
 	0 : 'www.amazon.in',
 	1 : 'paytm.com',
@@ -116,6 +117,10 @@ def getBookDetails(url):
 
 googleSearchQuery 	= 'physics for medical entrance amazon'
 page 				= requests.get('https://www.google.co.in/search?q=' + googleSearchQuery)
+=======
+googleSearchQuery 	= 'moochingal'
+page 			= requests.get('https://www.google.co.in/search?q=' + googleSearchQuery)
+>>>>>>> 7bf0401fa4a7c0daae2016ee60804b95bb733720
 
 links 	= page.text.split('<h3 class="r">') # first split to get the tiles 
 links 	= links[2:] #not taking all the links
@@ -123,7 +128,13 @@ links 	= links[2:] #not taking all the links
 for link in links:
 	chunks  = link.split(' ')
 	shorts 	= chunks[1].split('&amp;')
+<<<<<<< HEAD
 	url		= shorts[0][13:]
 	print '\n'
 	if url[:4] == 'http': # print only if it is an http url 
 		print getBookDetails(url)
+=======
+	url	= shorts[0][13:]
+	if url[:4] == 'http': # print only if it is an http url 
+		print url + '\n'	
+>>>>>>> 7bf0401fa4a7c0daae2016ee60804b95bb733720

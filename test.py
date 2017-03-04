@@ -1,0 +1,1 @@
+print ('class="a-size-large">'.index('="a-'))

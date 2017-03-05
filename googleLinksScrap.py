@@ -168,7 +168,9 @@ def getBookDetails(url):
 
 
 googleSearchQuery 	= 'physics for medical entrance amazon'
+
 page 				= requests.get('https://www.google.co.in/search?q=' + googleSearchQuery)
+
 
 links 	= page.text.split('<h3 class="r">') # first split to get the tiles 
 links 	= links[2:3] #not taking all the links
@@ -179,4 +181,5 @@ for link in links:
 	url		= shorts[0][13:]
 	print '\n'
 	if url[:4] == 'http': # print only if it is an http url 
+
 		print getBookDetails(url)

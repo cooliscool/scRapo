@@ -55,6 +55,7 @@ def getContentAfterAfter(page, after, after2, key1, key2):
 		return ''
 '''
 def getContent(*args, **kwargs):
+	print args
 	# documentation :
 	# args is a tuple of params
 	# args[1] : source content
@@ -108,7 +109,7 @@ def scrapVendor(url, vendorNumber):
 		# get the page
 		page = requests.get(url, headers= reqHeaders)
 		print url + '\n'
-
+		
 		#heading 
 		heading = getContent(page.text, 'class="a-size-large">', '<')[0]
 		print heading + '\n'

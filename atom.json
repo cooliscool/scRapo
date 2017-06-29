@@ -1,0 +1,16 @@
+{
+	"target" : "https://fmovies.se/",
+	"searchQuery" : "https://fmovies.se/?q=",
+	"searchSeed" : "prison+break",
+	"do" : 
+	[{
+		"repeated" : "True",
+		"name" : "Posters",
+		"afterSequence" : ["d", "d", "d "],
+		"bet"  : "href=\"",
+		"ween" : "\"",
+		"thenDo" : "for each item in the "
+
+	}]
+	
+}	

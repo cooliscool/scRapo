@@ -1,0 +1,49 @@
+{
+	"targetRoot" : "https://fmovies.is",
+	"search" : "1",
+	"searchQuery" : "https://fmovies.is/search?keyword=",
+	"searchSeed" : "hobbit",
+	"do" : 
+	[{
+		"taskType":"link",
+		"repeated" : "1",
+		"saveThis" : "1",
+		"name" : "Posters",
+		"afterSequence" : ["poster"],
+		"bet"  : "href=\"",
+		"ween" : "\"",
+		"isThereASubtask" : "1",
+		"thenDo" : {
+			"taskType":"para",
+			"repeated" : "False",
+			"name" : "Description",
+			"afterSequence" : ["class=\"desc\""],
+			"bet"  : ">",
+			"ween" : "</",
+			"isThereASubtask" : "False"
+		}
+
+
+	},
+	{
+		"taskType":"data",
+		"repeated" : "1",
+		"saveThis" : "1",
+		"name" : "Posters",
+		"afterSequence" : ["poster"],
+		"bet"  : "href=\"",
+		"ween" : "\"",
+		"isThereASubtask" : "1",
+		"thenDo" : {
+			"taskType":"para",
+			"repeated" : "False",
+			"name" : "Description",
+			"afterSequence" : ["class=\"desc\""],
+			"bet"  : ">",
+			"ween" : "</",
+			"isThereASubtask" : "False"
+		}
+
+
+	}]
+}

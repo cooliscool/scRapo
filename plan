@@ -1,0 +1,75 @@
+homepage
+two types of data:
+
+	links that need follow up 
+
+	info that dont need follow up 
+
+
+flow should be like :
+
+for each type of data , do different loops in the source text 
+
+for things that need a follow up , consider each as a new homepage and repeat 
+
+so an example flow would be like  : 
+
+homepage : a search query ex. hobbit
+
+in home page :4 links to movies turn up. dont directly go into scraping these sublinks , do that in queue ,
+
+next, scrap the data required in home page.  
+
+now, check the queue if there are any links , and move on for processing each of them.
+
+same story repeats.
+
+How to represent data scraped in each level. ! You said it , put the level ID, put info type, info . 
+
+--- 
+What if I need to keep a certain data together with each link scraped ? 
+	parallely run two threads of scraping . for the same ' link ' type , this thing embeds the info accompanying link just exactly along with it in the DB. 
+	Means there can be an option to repeatedly scrap even for info which is not link
+
+Next feature in v2 : 
+	You can specify more info to be embedded with the scraped info right from the json file where everything is defined. 
+
+
+I hope this thing can deliver to a lot of requirements. 
+
+
+
+How the program would work ? 
+
+Program Algo flow -- > 
+
+parse json
+
+get the root page 
+
+parse the jobs in root page 
+
+take first job 
+	save ? // if you want to save to data in output 
+	 ( even if save is not true, every processed link/ data should be logged into terminal )
+	type ?
+	1 - link - > will be added to proces queue 
+	2 - data - > wont be added to process queue
+	repeated ? 
+	y -> do rep parsing - > if link add each to process queue , save if 'save' is true
+	n -> do single time parsing - > push to data dictionary for corresponding level 
+
+
+	adding to queue based on link 'fate'
+
+	fate = 'data' - > just put into data
+	fate = 'subpage' - > scrap each subpaes also 
+
+
+	continue over to next jobs in the same page 
+
+	After each job is processed ,
+
+		check queue for sub jobs to do ( which would be the links )
+		each job will be having a link and sub- sub job(maybe several ) description exactly same as the root page. 
+

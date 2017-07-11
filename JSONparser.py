@@ -1,7 +1,6 @@
 #JSONparser.py
 import json
 import requests
-from pprint import pprint 
 from scrapfunctions import *
 
 jsonfile = 'atom.json'
@@ -16,13 +15,12 @@ if __name__ == '__main__':
 	# Parse JSON and assign variables
 
 	jsondata = parseJSON(jsonfile)
-	#pprint (jsondata)
+
 	startlink = jsondata['target']
 	searchLink = jsondata['searchQuery']
 	searchSeed = jsondata['searchSeed']
 	tasksnum =  (len(jsondata['do']))
 
-	
 
 	'''
 	do each task in 'do'
@@ -40,15 +38,17 @@ if __name__ == '__main__':
 			taskName = jsonDo['name']
 			taskIsThereASubTask =  (jsonDo['isThereASubtask'])
 
-			print taskIsThereASubTask
-
 			for sublink in linkfeed :
 
 				# if the link is not complete
+
 				if sublink[0:4]!= 'http':
 					sublink = startlink + sublink
-				page = requests.get( sublink , headers = reqHeaders).text
 
+				# now, get the page 
+				
+				page = requests.get( sublink , headers = reqHeaders).text
+				
 				
 				# Prepare tuple input for getContent function
 
@@ -68,6 +68,8 @@ if __name__ == '__main__':
 					try :
 						val, off = getContent(tup, offset= off)
 						dat.append(val)
+						if taskDoRepeated == "False":
+							break
 					except ValueError:
 						break
 

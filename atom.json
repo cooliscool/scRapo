@@ -1,9 +1,10 @@
 {
-	"target" : "https://fmovies.se",
-	"searchQuery" : "https://fmovies.se/search?keyword=",
-	"searchSeed" : "ram",
+	"target" : "https://fmovies.is",
+	"searchQuery" : "https://fmovies.is/search?keyword=",
+	"searchSeed" : "hobbit",
 	"do" : 
 	[{
+		"taskType":"link",
 		"repeated" : "True",
 		"name" : "Posters",
 		"afterSequence" : ["poster"],
@@ -11,15 +12,17 @@
 		"ween" : "\"",
 		"isThereASubtask" : "True",
 		"thenDo" : {
+			"taskType":"para",
 			"repeated" : "False",
-			"name" : "Posters",
-			"afterSequence" : ["class=\"imdb\""],
-			"bet"  : "<b>",
-			"ween" : "</b>",
+			"name" : "Description",
+			"afterSequence" : ["class=\"desc\""],
+			"bet"  : ">",
+			"ween" : "</",
 			"isThereASubtask" : "False"
 		}
 
 
 	}]
 	
-}	
+}
+
